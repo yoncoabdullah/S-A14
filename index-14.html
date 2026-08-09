@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عبدالله ❤️ شهد</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Tahoma,Arial,sans-serif;color:#5b2338;background:linear-gradient(135deg,#fff5f8,#ffe6ef,#fff);overflow-x:hidden}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.f{position:absolute;bottom:-50px;animation:up linear forwards;opacity:.75}@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 15px;position:relative;z-index:1}.card{width:min(900px,100%);padding:30px 20px;border-radius:30px;background:#ffffffd4;backdrop-filter:blur(10px);box-shadow:0 20px 60px #78234620;text-align:center;border:1px solid #dc416e30}
+h1{font-size:clamp(44px,11vw,82px);color:#d62f65;margin:5px 0}h2{font-size:clamp(28px,7vw,46px);color:#c82d5e;margin:8px 0 18px}p{font-size:clamp(17px,4vw,21px);line-height:2;margin:12px auto;max-width:780px}
+button{border:0;border-radius:999px;padding:14px 25px;margin:8px 4px;background:#d62f65;color:#fff;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 8px 24px #d62f6540}.secondary{background:#fff;color:#c82d5e;border:1px solid #e7a1b5}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:25px 0}.photo{aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#ffe0e9;border:1px solid #efb2c3}.photo img{width:100%;height:100%;object-fit:cover}
+.note{margin:22px 0;padding:22px;border-radius:22px;background:#fff7fa;border-right:5px solid #d62f65;text-align:right}.note p{margin:7px 0}.en{direction:ltr;text-align:left;font-family:Georgia,serif}
+#surprise{display:none}#surprise.open{display:block;animation:show .7s ease}@keyframes show{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+audio{width:min(520px,100%);margin:12px auto}footer{text-align:center;padding:25px;color:#9a6074;position:relative;z-index:1}.small{font-size:13px!important}
+</style>
+</head>
+<body>
+<div id="fx"></div>
+
+<section>
+<div class="card">
+<div>مكان صغير معمول مخصوص لينا ✨</div>
+<h1>عبدالله ❤️ شهد</h1>
+<p>مكان صغير لينا إحنا الاتنين، نسيبه معانا ونكبر ذكرياتنا فيه لحد ما يكون لينا بيتنا مستقبلًا إن شاء الله 😍</p>
+<button onclick="go('memories')">ذكرياتنا 📸</button>
+<button class="secondary" onclick="go('letter')">رسالتي ليكي 💌</button>
+<div><audio controls><source src="song.mp3" type="audio/mpeg"></audio><div class="small">الأغنية باسم song.mp3</div></div>
+</div>
+</section>
+
+<section id="memories">
+<div class="card">
+<h2>ذكرياتنا ❤️</h2>
+<p>كل صورة هنا ليها حكاية، وكل لحظة معاكِ تستاهل تفضل موجودة.</p>
+<div class="gallery">
+<div class="photo"><img src="photo1.jpg" alt="ذكرى 1"></div>
+<div class="photo"><img src="photo2.jpg" alt="ذكرى 2"></div>
+<div class="photo"><img src="photo3.jpg" alt="ذكرى 3"></div>
+<div class="photo"><img src="photo4.jpg" alt="ذكرى 4"></div>
+</div>
+<button onclick="go('letter')">كمّل 💗</button>
+</div>
+</section>
+
+<section id="letter">
+<div class="card">
+<h2>رسالتي ليكي 💌</h2>
+<div class="note">
+<p>كل سنة و انت طيبة يا شهد يا حبيبتي و تفضلي طول السنين الجاية معايا و نكون انا وانت سبب سعادة بعض ❤️😍</p>
+<p>أنا عملت ليكي المكان ده علشان يفضل معاكي علي طول و نفضل مع بعض دايما ❤️</p>
+<p>و عاوز يبقي فيه مكان يبقى المكان بتاعنا لحد ما نكون ف بيتنا مستقبلا ان شاء الله 😍</p>
+<p class="en">Happy birthday to my beautiful and gorgeous girl 😘🌹.<br>Happy birthday to the girl who makes me better and makes my world brighter<br>خدي بوسة 😘🌹</p>
+</div>
+<button onclick="surprise()">اضغطي هنا للمفاجأة 🎁</button>
+<div id="surprise">
+<h2>🎂 مفاجأة 🎂</h2>
+<div class="note"><p>كل سنة و انت طيبة يا اجمل حاجة حصلتلي آخر ۲۰ سنة و ممکن نقول اخر ۲۱ سنة علشان عيد ميلادي😍🌹</p></div>
+<p>❤️ بحبك يا شهد ❤️</p>
+</div>
+</div>
+</section>
+
+<footer>Made with ❤️ by Abdullah for Shahd</footer>
+
+<script>
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function make(){let e=document.createElement('div');e.className='f';e.textContent=['❤️','💗','💕','✨','🌹'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.fontSize=16+Math.random()*24+'px';e.style.animationDuration=5+Math.random()*5+'s';document.getElementById('fx').appendChild(e);setTimeout(()=>e.remove(),11000)}
+function surprise(){document.getElementById('surprise').classList.add('open');document.getElementById('surprise').scrollIntoView({behavior:'smooth',block:'center'});for(let i=0;i<20;i++)setTimeout(make,i*70)}
+setInterval(make,500)
+</script>
+</body>
+</html>

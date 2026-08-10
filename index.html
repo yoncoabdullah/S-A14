@@ -132,15 +132,11 @@ button{
     margin:25px 0;
 }
 
-/* Photo box */
-
 .photo-box{
     width:100%;
     max-width:650px;
     text-align:center;
 }
-
-/* Photo */
 
 .photo{
     width:100%;
@@ -165,8 +161,6 @@ button{
     object-fit:cover;
 }
 
-/* Text under photos */
-
 .caption{
     margin:10px 0 0 !important;
     padding:8px 5px;
@@ -176,7 +170,7 @@ button{
     line-height:1.7 !important;
 }
 
-/* Fullscreen Image Viewer */
+/* Image Viewer */
 
 #imageViewer{
     display:none;
@@ -212,11 +206,12 @@ button{
     padding:0;
     margin:0;
     border-radius:50%;
-    background:#ffffff;
+    background:#fff;
     color:#c82d5e;
     font-size:28px;
     line-height:48px;
     box-shadow:none;
+    z-index:3;
 }
 
 .prevImage,
@@ -229,11 +224,12 @@ button{
     padding:0;
     margin:0;
     border-radius:50%;
-    background:#ffffff;
+    background:#fff;
     color:#c82d5e;
     font-size:25px;
     line-height:48px;
     box-shadow:none;
+    z-index:3;
 }
 
 .prevImage{
@@ -311,333 +307,4 @@ footer{
 
 /* Mobile */
 
-@media(max-width:600px){
-
-    section{
-        padding:20px 12px;
-    }
-
-    .card{
-        padding:25px 15px;
-        border-radius:24px;
-    }
-
-    h1{
-        font-size:42px;
-    }
-
-    h2{
-        font-size:30px;
-    }
-
-    button{
-        font-size:15px;
-        padding:12px 20px;
-    }
-
-    .gallery{
-        gap:30px;
-    }
-
-    .photo-box{
-        max-width:100%;
-    }
-
-    .photo{
-        border-radius:18px;
-    }
-
-    .caption{
-        font-size:16px !important;
-        padding:5px 2px;
-    }
-
-    #imageViewer{
-        padding:15px;
-    }
-
-    #fullImage{
-        max-width:94vw;
-        max-height:82vh;
-    }
-
-    .prevImage,
-    .nextImage{
-        width:42px;
-        height:42px;
-        line-height:42px;
-        font-size:21px;
-    }
-
-    .closeViewer{
-        width:42px;
-        height:42px;
-        line-height:42px;
-        font-size:24px;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div id="fx"></div>
-
-
-<!-- HOME -->
-
-<section>
-
-<div class="card">
-
-<div>مكان صغير معمول مخصوص لينا ✨</div>
-
-<h1>
-For my precious and true love 😍
-</h1>
-
-<p>
-مكان صغير لينا إحنا الاتنين، نسيبه معانا ونكبر ذكرياتنا فيه
-لحد ما يكون لينا بيتنا مستقبلًا إن شاء الله 😍
-</p>
-
-<button onclick="go('memories')">
-ذكرياتنا 📸
-</button>
-
-<button class="secondary" onclick="go('letter')">
-رسالتي ليكي 💌
-</button>
-
-<div>
-
-<audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
-    متصفحك لا يدعم تشغيل الصوت.
-</audio>
-
-<div class="small">
-🎵 اضغطي في أي مكان في الموقع لتشغيل الأغنية ❤️
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- MEMORIES -->
-
-<section id="memories">
-
-<div class="card">
-
-<h2>
-ذكرياتنا ❤️
-</h2>
-
-<p>
-كل صورة هنا ليها حكاية، وكل لحظة معاكِ تستاهل تفضل موجودة.
-</p>
-
-
-<div class="gallery">
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(0)">
-<img src="photo1.jpg" alt="">
-</div>
-
-<p class="caption">
-اجمل ما رأت عيوني 😍
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(1)">
-<img src="photo2.jpg" alt="">
-</div>
-
-<p class="caption">
-يارب نفضل سوا يا عيوني طول العمر 🙏
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(2)">
-<img src="photo3.jpg" alt="">
-</div>
-
-<p class="caption">
-ايش هاي الحلاوة يا ناس 🤩
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(3)">
-<img src="photo4.jpg" alt="">
-</div>
-
-<p class="caption">
-حبيبتي هذي 🌹🤩
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(4)">
-<img src="photo5.jpg" alt="">
-</div>
-
-<p class="caption">
-والله وأنا كمان محتاجك يا قلبي ❤️
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(5)">
-<img src="photo6.jpg" alt="">
-</div>
-
-<p class="caption">
-مش عارف اقول ايه والله
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(6)">
-<img src="photo7.jpg" alt="">
-</div>
-
-<p class="caption">
-طل بالابيض علشان خاطر شهد 🤩☝️
-</p>
-
-</div>
-
-
-
-<div class="photo-box">
-
-<div class="photo" onclick="openImage(7)">
-<img src="photo8.jpg" alt="">
-</div>
-
-<p class="caption">
-شايفين القمر ده حبيبتي احلى منه 🌹❤️
-</p>
-
-</div>
-
-
-</div>
-
-
-<button onclick="go('letter')">
-كمّلي 💗
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- IMAGE VIEWER -->
-
-<div id="imageViewer" onclick="closeIfBackground(event)">
-
-<button class="closeViewer" onclick="closeImage()">
-×
-</button>
-
-<button class="prevImage" onclick="changeImage(-1)">
-‹
-</button>
-
-<img id="fullImage" src="" alt="">
-
-<button class="nextImage" onclick="changeImage(1)">
-›
-</button>
-
-</div>
-
-
-
-<!-- LETTER -->
-
-<section id="letter">
-
-<div class="card">
-
-<h2>
-رسالتي ليكي 💌
-</h2>
-
-
-<div class="note">
-
-<p>
-كل سنة و انت طيبة يا شهد يا حبيبتي و تفضلي طول السنين الجاية معايا
-و نكون انا وانت سبب سعادة بعض ❤️😍
-</p>
-
-<p>
-أنا عملت ليكي المكان ده علشان يفضل معاكي علي طول
-و نفضل مع بعض دايما ❤️
-</p>
-
-<p>
-و عاوز يبقي فيه مكان يبقى المكان بتاعنا
-لحد ما نكون ف بيتنا مستقبلا ان شاء الله 😍
-</p>
-
-<p class="en">
-
-Happy birthday to my beautiful and gorgeous girl 😘🌹.
-
-<br>
-
-Happy birthday to the girl who makes me better
-and makes my world brighter
-
-<br>
-
-خدي بوسة 😘🌹
-
-</p>
-
-</div>
-
-
-<button onclick
+@media(max-width

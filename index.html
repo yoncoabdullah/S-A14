@@ -125,9 +125,10 @@ button{
 
 .gallery{
     width:100%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));
-    gap:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:35px;
     margin:25px 0;
 }
 
@@ -135,6 +136,7 @@ button{
 
 .photo-box{
     width:100%;
+    max-width:650px;
     text-align:center;
 }
 
@@ -147,6 +149,13 @@ button{
     overflow:hidden;
     background:#ffe0e9;
     border:1px solid #efb2c3;
+    cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.photo:hover{
+    transform:scale(1.015);
+    box-shadow:0 12px 30px #78234625;
 }
 
 .photo img{
@@ -162,9 +171,77 @@ button{
     margin:10px 0 0 !important;
     padding:8px 5px;
     color:#c82d5e;
-    font-size:16px !important;
+    font-size:18px !important;
     font-weight:bold;
-    line-height:1.6 !important;
+    line-height:1.7 !important;
+}
+
+/* Fullscreen Image Viewer */
+
+#imageViewer{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(35,10,22,.92);
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+#imageViewer.open{
+    display:flex;
+}
+
+#fullImage{
+    max-width:95vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:15px;
+    box-shadow:0 15px 50px rgba(0,0,0,.5);
+}
+
+.closeViewer{
+    position:absolute;
+    top:15px;
+    right:18px;
+    width:48px;
+    height:48px;
+    padding:0;
+    margin:0;
+    border-radius:50%;
+    background:#ffffff;
+    color:#c82d5e;
+    font-size:28px;
+    line-height:48px;
+    box-shadow:none;
+}
+
+.prevImage,
+.nextImage{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    padding:0;
+    margin:0;
+    border-radius:50%;
+    background:#ffffff;
+    color:#c82d5e;
+    font-size:25px;
+    line-height:48px;
+    box-shadow:none;
+}
+
+.prevImage{
+    left:15px;
+}
+
+.nextImage{
+    right:15px;
 }
 
 /* Letter */
@@ -259,17 +336,44 @@ footer{
     }
 
     .gallery{
-        grid-template-columns:1fr 1fr;
-        gap:12px;
+        gap:30px;
+    }
+
+    .photo-box{
+        max-width:100%;
     }
 
     .photo{
-        border-radius:16px;
+        border-radius:18px;
     }
 
     .caption{
-        font-size:14px !important;
+        font-size:16px !important;
         padding:5px 2px;
+    }
+
+    #imageViewer{
+        padding:15px;
+    }
+
+    #fullImage{
+        max-width:94vw;
+        max-height:82vh;
+    }
+
+    .prevImage,
+    .nextImage{
+        width:42px;
+        height:42px;
+        line-height:42px;
+        font-size:21px;
+    }
+
+    .closeViewer{
+        width:42px;
+        height:42px;
+        line-height:42px;
+        font-size:24px;
     }
 
 }
@@ -309,13 +413,13 @@ For my precious and true love 😍
 
 <div>
 
-<audio controls>
-<source src="song.mp3" type="audio/mpeg">
-متصفحك لا يدعم تشغيل الصوت.
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
 </audio>
 
 <div class="small">
-الأغنية باسم song.mp3
+🎵 اضغطي في أي مكان في الموقع لتشغيل الأغنية ❤️
 </div>
 
 </div>
@@ -346,13 +450,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo1.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(0)">
+<img src="photo1.jpg" alt="">
+</div>
 
-    <p class="caption">
-        اجمل ما رأت عيوني 😍
-    </p>
+<p class="caption">
+اجمل ما رأت عيوني 😍
+</p>
 
 </div>
 
@@ -360,13 +464,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo2.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(1)">
+<img src="photo2.jpg" alt="">
+</div>
 
-    <p class="caption">
-        يارب نفضل سوا يا عيوني طول العمر 🙏
-    </p>
+<p class="caption">
+يارب نفضل سوا يا عيوني طول العمر 🙏
+</p>
 
 </div>
 
@@ -374,13 +478,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo3.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(2)">
+<img src="photo3.jpg" alt="">
+</div>
 
-    <p class="caption">
-        ايش هاي الحلاوة يا ناس 🤩
-    </p>
+<p class="caption">
+ايش هاي الحلاوة يا ناس 🤩
+</p>
 
 </div>
 
@@ -388,13 +492,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo4.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(3)">
+<img src="photo4.jpg" alt="">
+</div>
 
-    <p class="caption">
-        حبيبتي هذي 🌹🤩
-    </p>
+<p class="caption">
+حبيبتي هذي 🌹🤩
+</p>
 
 </div>
 
@@ -402,13 +506,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo5.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(4)">
+<img src="photo5.jpg" alt="">
+</div>
 
-    <p class="caption">
-        والله وأنا كمان محتاجك يا قلبي ❤️
-    </p>
+<p class="caption">
+والله وأنا كمان محتاجك يا قلبي ❤️
+</p>
 
 </div>
 
@@ -416,13 +520,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo6.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(5)">
+<img src="photo6.jpg" alt="">
+</div>
 
-    <p class="caption">
-        مش عارف اقول ايه والله
-    </p>
+<p class="caption">
+مش عارف اقول ايه والله
+</p>
 
 </div>
 
@@ -430,13 +534,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo7.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(6)">
+<img src="photo7.jpg" alt="">
+</div>
 
-    <p class="caption">
-        طل بالابيض علشان خاطر شهد 🤩☝️
-    </p>
+<p class="caption">
+طل بالابيض علشان خاطر شهد 🤩☝️
+</p>
 
 </div>
 
@@ -444,13 +548,13 @@ For my precious and true love 😍
 
 <div class="photo-box">
 
-    <div class="photo">
-        <img src="photo8.jpg" alt="">
-    </div>
+<div class="photo" onclick="openImage(7)">
+<img src="photo8.jpg" alt="">
+</div>
 
-    <p class="caption">
-        شايفين القمر ده حبيبتي احلى منه 🌹❤️
-    </p>
+<p class="caption">
+شايفين القمر ده حبيبتي احلى منه 🌹❤️
+</p>
 
 </div>
 
@@ -465,6 +569,28 @@ For my precious and true love 😍
 </div>
 
 </section>
+
+
+
+<!-- IMAGE VIEWER -->
+
+<div id="imageViewer" onclick="closeIfBackground(event)">
+
+<button class="closeViewer" onclick="closeImage()">
+×
+</button>
+
+<button class="prevImage" onclick="changeImage(-1)">
+‹
+</button>
+
+<img id="fullImage" src="" alt="">
+
+<button class="nextImage" onclick="changeImage(1)">
+›
+</button>
+
+</div>
 
 
 
@@ -514,115 +640,4 @@ and makes my world brighter
 </div>
 
 
-<button onclick="surprise()">
-اضغطي هنا للمفاجأة 🎁
-</button>
-
-
-<div id="surprise">
-
-<h2>
-🎂 مفاجأة 🎂
-</h2>
-
-<div class="note">
-
-<p>
-كل سنة و انت طيبة يا اجمل حاجة حصلتلي آخر ۲۰ سنة
-و ممكن نقول آخر ۲۱ سنة علشان عيد ميلادي 😍🌹
-</p>
-
-</div>
-
-<p>
-❤️ بحبك يا شهد ❤️
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-Made with love ❤️
-</footer>
-
-
-
-<script>
-
-function go(id){
-
-    document
-    .getElementById(id)
-    .scrollIntoView({
-        behavior:'smooth'
-    });
-
-}
-
-
-function make(){
-
-    let e=document.createElement('div');
-
-    e.className='f';
-
-    e.textContent=[
-        '❤️',
-        '💗',
-        '💕',
-        '✨',
-        '🌹'
-    ][Math.floor(Math.random()*5)];
-
-    e.style.left=Math.random()*100+'vw';
-
-    e.style.fontSize=
-        16+Math.random()*24+'px';
-
-    e.style.animationDuration=
-        5+Math.random()*5+'s';
-
-    document
-        .getElementById('fx')
-        .appendChild(e);
-
-    setTimeout(()=>{
-        e.remove();
-    },11000);
-
-}
-
-
-function surprise(){
-
-    document
-        .getElementById('surprise')
-        .classList.add('open');
-
-    document
-        .getElementById('surprise')
-        .scrollIntoView({
-            behavior:'smooth',
-            block:'center'
-        });
-
-    for(let i=0;i<20;i++){
-
-        setTimeout(make,i*70);
-
-    }
-
-}
-
-
-setInterval(make,500);
-
-</script>
-
-</body>
-
-</html>
+<button onclick

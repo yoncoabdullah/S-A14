@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sweetheart ❤️</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;width:100%;min-width:0;font-family:Tahoma,Arial,sans-serif;color:#5b2338;background:linear-gradient(135deg,#fff5f8,#ffe6ef,#fff);overflow-x:hidden}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.f{position:absolute;bottom:-50px;animation:up linear forwards;opacity:.75}
+@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+section{width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 15px;position:relative;z-index:1}
+.card{width:100%;max-width:900px;min-width:0;padding:30px 20px;border-radius:30px;background:#ffffffd4;backdrop-filter:blur(10px);box-shadow:0 20px 60px #78234620;text-align:center;border:1px solid #dc416e30}
+h1{font-size:clamp(38px,10vw,82px);color:#d62f65;margin:5px 0}
+h2{font-size:clamp(28px,7vw,46px);color:#c82d5e;margin:8px 0 18px}
+p{font-size:clamp(16px,4vw,21px);line-height:2;margin:12px auto;max-width:780px}
+button{border:0;border-radius:999px;padding:14px 25px;margin:8px 4px;background:#d62f65;color:#fff;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 8px 24px #d62f6540}
+.secondary{background:#fff;color:#c82d5e;border:1px solid #e7a1b5}
+.gallery{width:100%;display:flex;flex-direction:column;align-items:center;gap:35px;margin:25px 0}
+.photo-box{width:100%;max-width:650px;text-align:center}
+.photo{width:100%;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#ffe0e9;border:1px solid #efb2c3;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+.photo:hover{transform:scale(1.015);box-shadow:0 12px 30px #78234625}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.caption{margin:10px 0 0!important;padding:8px 5px;color:#c82d5e;font-size:18px!important;font-weight:bold;line-height:1.7!important}
+#imageViewer{display:none;position:fixed;inset:0;z-index:9999;background:rgba(35,10,22,.92);align-items:center;justify-content:center;padding:25px}
+#imageViewer.open{display:flex}
+#fullImage{max-width:95vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:15px;box-shadow:0 15px 50px rgba(0,0,0,.5)}
+.closeViewer{position:absolute;top:15px;right:18px;width:48px;height:48px;padding:0;margin:0;border-radius:50%;background:#fff;color:#c82d5e;font-size:28px;line-height:48px;box-shadow:none}
+.prevImage,.nextImage{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;padding:0;margin:0;border-radius:50%;background:#fff;color:#c82d5e;font-size:25px;line-height:48px;box-shadow:none}
+.prevImage{left:15px}.nextImage{right:15px}
+.note{margin:22px 0;padding:22px;border-radius:22px;background:#fff7fa;border-right:5px solid #d62f65;text-align:right}
+.note p{margin:7px 0}.en{direction:ltr;text-align:left;font-family:Georgia,serif}
+#surprise{display:none}
+#surprise.open{display:block;animation:show .7s ease}
+@keyframes show{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+audio{width:min(520px,100%);margin:12px auto}.small{font-size:13px!important}
+footer{text-align:center;padding:25px;color:#9a6074;position:relative;z-index:1}
+@media(max-width:600px){
+section{padding:20px 12px}.card{padding:25px 15px;border-radius:24px}
+h1{font-size:42px}h2{font-size:30px}button{font-size:15px;padding:12px 20px}
+.gallery{gap:30px}.photo-box{max-width:100%}.photo{border-radius:18px}
+.caption{font-size:16px!important;padding:5px 2px}
+#imageViewer{padding:15px}#fullImage{max-width:94vw;max-height:82vh}
+.prevImage,.nextImage{width:42px;height:42px;line-height:42px;font-size:21px}
+.closeViewer{width:42px;height:42px;line-height:42px;font-size:24px}
+}
+</style>
+</head>
+<body>
+<div id="fx"></div>
+
+<section>
+<div class="card">
+<div>مكان صغير معمول مخصوص لينا ✨</div>
+<h1>For my precious and true love 😍</h1>
+<p>مكان صغير لينا إحنا الاتنين، نسيبه معانا ونكبر ذكرياتنا فيه لحد ما يكون لينا بيتنا مستقبلًا إن شاء الله 😍</p>
+<button type="button" onclick="go('memories')">ذكرياتنا 📸</button>
+<button type="button" class="secondary" onclick="go('letter')">رسالتي ليكي 💌</button>
+<div>
+<audio id="bgMusic" controls autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+متصفحك لا يدعم تشغيل الصوت.
+</audio>
+<div class="small">الأغنية باسم song.mp3</div>
+</div>
+</div>
+</section>
+
+<section id="memories">
+<div class="card">
+<h2>ذكرياتنا ❤️</h2>
+<p>كل صورة هنا ليها حكاية، وكل لحظة معاكِ تستاهل تفضل موجودة.</p>
+<div class="gallery">
+
+<div class="photo-box"><div class="photo" onclick="openImage(0)"><img src="photo1.jpg" alt=""></div><p class="caption">اجمل ما رأت عيوني 😍</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(1)"><img src="photo2.jpg" alt=""></div><p class="caption">يارب نفضل سوا يا عيوني طول العمر 🙏</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(2)"><img src="photo3.jpg" alt=""></div><p class="caption">ايش هاي الحلاوة يا ناس 🤩</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(3)"><img src="photo4.jpg" alt=""></div><p class="caption">حبيبتي هذي 🌹🤩</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(4)"><img src="photo5.jpg" alt=""></div><p class="caption">والله وأنا كمان محتاجك يا قلبي ❤️</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(5)"><img src="photo6.jpg" alt=""></div><p class="caption">مش عارف اقول ايه والله</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(6)"><img src="photo7.jpg" alt=""></div><p class="caption">طل بالابيض علشان خاطر شهد 🤩☝️</p></div>
+<div class="photo-box"><div class="photo" onclick="openImage(7)"><img src="photo8.jpg" alt=""></div><p class="caption">شايفين القمر ده حبيبتي احلى منه 🌹❤️</p></div><div class="photo-box"><div class="photo" onclick="openImage(8)"><img src="photo9.jpg" alt=""></div><p class="caption">عارف انك بتحبي الصورة دي يا عيوني 🤩❤️</p></div>
+
+</div>
+<button type="button" onclick="go('letter')">كمّلي 💗</button>
+</div>
+</section>
+
+<div id="imageViewer" onclick="closeIfBackground(event)">
+<button type="button" class="closeViewer" onclick="closeImage()">×</button>
+<button type="button" class="prevImage" onclick="changeImage(-1)">‹</button>
+<img id="fullImage" src="" alt="">
+<button type="button" class="nextImage" onclick="changeImage(1)">›</button>
+</div>
+
+<section id="letter">
+<div class="card">
+<h2>رسالتي ليكي 💌</h2>
+<div class="note">
+<p>كل سنة و انت طيبة يا شهد يا حبيبتي و تفضلي طول السنين الجاية معايا و نكون انا وانت سبب سعادة بعض ❤️😍</p>
+<p>أنا عملت ليكي المكان ده علشان يفضل معاكي علي طول و نفضل مع بعض دايما ❤️</p>
+<p>و عاوز يبقي فيه مكان يبقى المكان بتاعنا لحد ما نكون ف بيتنا مستقبلا ان شاء الله 😍</p>
+<p class="en">Happy birthday to my beautiful and gorgeous girl 😘🌹.<br>Happy birthday to the girl who makes me better and makes my world brighter<br>خدي بوسة 😘🌹</p>
+</div>
+<button type="button" onclick="surprise()">اضغطي هنا للمفاجأة 🎁</button>
+<div id="surprise">
+<h2>🎂 مفاجأة 🎂</h2>
+<div class="note"><p>كل سنة و انت طيبة يا اجمل حاجة حصلتلي آخر ۲۰ سنة و ممكن نقول آخر ۲۱ سنة علشان عيد ميلادي 😍🌹</p></div>
+<p>❤️ بحبك يا شهد ❤️</p>
+</div>
+</div>
+</section>
+
+<footer>Made with love ❤️</footer>
+
+<script>
+const bgMusic = document.getElementById('bgMusic');
+
+function tryAutoPlay(){
+    if(bgMusic){
+        bgMusic.volume = 1;
+        bgMusic.play().catch(()=>{});
+    }
+}
+
+window.addEventListener('load', tryAutoPlay);
+
+document.addEventListener('click', function(){
+    tryAutoPlay();
+}, {once:true});
+
+function go(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function make(){
+    let e=document.createElement('div');
+    e.className='f';
+    e.textContent=['❤️','💗','💕','✨','🌹'][Math.floor(Math.random()*5)];
+    e.style.left=Math.random()*100+'vw';
+    e.style.fontSize=16+Math.random()*24+'px';
+    e.style.animationDuration=5+Math.random()*5+'s';
+    document.getElementById('fx').appendChild(e);
+    setTimeout(()=>e.remove(),11000);
+}
+
+const images=[
+    'photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg',
+    'photo5.jpg','photo6.jpg','photo7.jpg','photo8.jpg','photo9.jpg'
+];
+
+let currentImage=0;
+
+function openImage(index){
+    currentImage=index;
+    document.getElementById('fullImage').src=images[currentImage];
+    document.getElementById('imageViewer').classList.add('open');
+    document.body.style.overflow='hidden';
+}
+
+function closeImage(){
+    document.getElementById('imageViewer').classList.remove('open');
+    document.body.style.overflow='';
+}
+
+function closeIfBackground(event){
+    if(event.target.id==='imageViewer') closeImage();
+}
+
+function changeImage(direction){
+    currentImage+=direction;
+    if(currentImage<0) currentImage=images.length-1;
+    if(currentImage>=images.length) currentImage=0;
+    document.getElementById('fullImage').src=images[currentImage];
+}
+
+document.addEventListener('keydown',function(event){
+    const viewer=document.getElementById('imageViewer');
+    if(!viewer.classList.contains('open')) return;
+    if(event.key==='Escape') closeImage();
+    if(event.key==='ArrowLeft') changeImage(-1);
+    if(event.key==='ArrowRight') changeImage(1);
+});
+
+function surprise(){
+    document.getElementById('surprise').classList.add('open');
+    document.getElementById('surprise').scrollIntoView({behavior:'smooth',block:'center'});
+    for(let i=0;i<20;i++) setTimeout(make,i*70);
+}
+
+setInterval(make,500);
+</script>
+</body>
+</html>
